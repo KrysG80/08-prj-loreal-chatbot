@@ -3,64 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <title>L’Oréal Beauty Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loreal.css" />
   </head>
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+      <!-- Header / Branding -->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <div class="brand">
+          <img src="img/loreal-logo.png" alt="L’Oréal logo" class="logo" />
+          <h1 class="site-title">L’Oréal Beauty Assistant</h1>
+        </div>
+        <p class="tagline">Personalized routines & product guidance</p>
       </header>
 
-      <!------- Chat Area ------->
+      <!-- Chat Area -->
       <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+        <section class="chatbox card">
+          <div id="chatWindow" class="chat-window" aria-live="polite" aria-label="Chat transcript">
+            <!-- bubbles appear here -->
           </div>
 
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
+          <div id="lastQuestion" class="last-question" aria-live="polite"></div>
+
+          <form id="chatForm" class="chat-form" autocomplete="off">
+            <label for="userInput" class="visually-hidden">Your message</label>
             <input
               id="userInput"
               name="userInput"
               type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
+              placeholder="Ask about L’Oréal products, skincare, haircare…"
               required
             />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
+            <button type="submit" id="sendBtn" class="btn">
+              <span class="material-icon" aria-hidden="true">➤</span>
               <span class="visually-hidden">Send</span>
             </button>
           </form>
         </section>
       </main>
 
-      <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>© 2025 L’Oréal (Student project demo)</p>
         <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+          <a href="#" aria-disabled="true">Privacy</a>
+          <a href="#" aria-disabled="true">Terms</a>
+          <a href="#" aria-disabled="true">Contact</a>
         </nav>
       </footer>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
-    <script src="script.js"></script>
+    <!-- Local dev only: provides window.OPENAI_API_KEY -->
+    <script src="secrets.js" defer></script>
+    <script src="loreal.js" defer></script>
   </body>
 </html>
