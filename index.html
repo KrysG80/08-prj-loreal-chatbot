@@ -8,202 +8,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <!-- Inline CSS -->
     <style>
-      :root {
-        --brand-black: #000000;
-        --brand-white: #ffffff;
-        --brand-gold: #c8a46b;
-        --text: #1a1a1a;
-        --muted: #666666;
-        --bg: #f7f7f7;
-        --bubble-user: #101010;
-        --bubble-ai: #ffffff;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      html, body {
-        height: 100%;
-      }
-
-      body {
-        font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        display: flex;
-        justify-content: center;
-      }
-
-      .page-wrapper {
-        width: 94%;
-        max-width: 900px;
-        padding: 24px;
-      }
-
-      .site-header {
-        padding: 24px 0 12px;
-        text-align: center;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-      }
-
-      .logo {
-        height: 36px;
-        filter: grayscale(100%) contrast(120%);
-      }
-
-      .site-title {
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-      .tagline {
-        color: var(--muted);
-        margin-top: 6px;
-      }
-
-      .card {
-        background: var(--brand-white);
-        border: 1px solid #eaeaea;
-        border-radius: 18px;
-        box-shadow: var(--shadow);
-      }
-
-      .chatbox {
-        margin: 28px 0;
-        padding: 16px;
-      }
-
-      .chat-window {
-        height: 420px;
-        overflow-y: auto;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        background: linear-gradient(180deg, #fff 0%, #fff 60%, #f9f9f9 100%);
-        border-radius: 14px;
-        border: 1px solid #eee;
-      }
-
-      .bubble {
-        padding: 12px 14px;
-        border-radius: 16px;
-        max-width: 78%;
-        line-height: 1.5;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-        word-wrap: break-word;
-      }
-
-      .bubble.user {
-        align-self: flex-end;
-        background: var(--bubble-user);
-        color: var(--brand-white);
-        border: 1px solid #111;
-      }
-
-      .bubble.ai {
-        align-self: flex-start;
-        background: var(--bubble-ai);
-        border: 1px solid #ececec;
-      }
-
-      .last-question {
-        margin: 10px 6px 0;
-        font-size: 0.9rem;
-        color: var(--muted);
-        border-left: 3px solid var(--brand-gold);
-        padding-left: 10px;
-        display: none;
-      }
-
-      .chat-form {
-        display: flex;
-        gap: 10px;
-        margin-top: 12px;
-        padding: 8px;
-      }
-
-      .chat-form input {
-        flex: 1;
-        padding: 14px 16px;
-        border-radius: 12px;
-        border: 1px solid #ddd;
-        font-size: 1rem;
-        background: #fff;
-      }
-
-      .chat-form input:focus {
-        outline: 2px solid var(--brand-gold);
-        outline-offset: 2px;
-      }
-
-      .btn {
-        min-width: 54px;
-        border: none;
-        border-radius: 12px;
-        background: var(--brand-black);
-        color: #fff;
-        cursor: pointer;
-        padding: 0 18px;
-        font-weight: 700;
-        transition: transform 0.05s ease, opacity 0.2s ease;
-      }
-
-      .btn:hover { opacity: 0.9; }
-      .btn:active { transform: translateY(1px); }
-
-      .site-footer {
-        margin: 18px 0 8px;
-        text-align: center;
-        color: var(--muted);
-      }
-
-      .site-footer nav a {
-        color: inherit;
-        margin: 0 8px;
-        text-decoration: none;
-      }
-
-      .site-footer nav a:hover {
-        color: #333;
-      }
-
-      .typing {
-        display: flex;
-        gap: 6px;
-        align-items: center;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #bbb;
-        animation: blink 1.2s infinite;
-      }
-
-      .dot:nth-child(2) { animation-delay: 0.2s; }
-      .dot:nth-child(3) { animation-delay: 0.4s; }
-
-      @keyframes blink {
-        0%, 80%, 100% { opacity: 0.2; }
-        40% { opacity: 1; }
-      }
+      :root { --brand-black:#000; --brand-white:#fff; --brand-gold:#c8a46b; --text:#1a1a1a; --muted:#666; --bg:#f7f7f7; --bubble-user:#101010; --bubble-ai:#fff; --shadow:0 10px 30px rgba(0,0,0,.08); }
+      *{box-sizing:border-box;margin:0;padding:0} html,body{height:100%}
+      body{font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);display:flex;justify-content:center}
+      .page-wrapper{width:94%;max-width:900px;padding:24px}
+      .site-header{padding:24px 0 12px;text-align:center}
+      .brand{display:flex;align-items:center;justify-content:center;gap:14px}
+      .logo{height:36px;filter:grayscale(100%) contrast(120%)}
+      .site-title{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+      .tagline{color:var(--muted);margin-top:6px}
+      .card{background:var(--brand-white);border:1px solid #eaeaea;border-radius:18px;box-shadow:var(--shadow)}
+      .chatbox{margin:28px 0;padding:16px}
+      .chat-window{height:420px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,#fff 0%,#fff 60%,#f9f9f9 100%);border-radius:14px;border:1px solid #eee}
+      .bubble{padding:12px 14px;border-radius:16px;max-width:78%;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.04);word-wrap:break-word}
+      .bubble.user{align-self:flex-end;background:var(--bubble-user);color:var(--brand-white);border:1px solid #111}
+      .bubble.ai{align-self:flex-start;background:var(--bubble-ai);border:1px solid #ececec}
+      .last-question{margin:10px 6px 0;font-size:.9rem;color:var(--muted);border-left:3px solid var(--brand-gold);padding-left:10px;display:none}
+      .chat-form{display:flex;gap:10px;margin-top:12px;padding:8px}
+      .chat-form input{flex:1;padding:14px 16px;border-radius:12px;border:1px solid #ddd;font-size:1rem;background:#fff}
+      .chat-form input:focus{outline:2px solid var(--brand-gold);outline-offset:2px}
+      .btn{min-width:54px;border:none;border-radius:12px;background:var(--brand-black);color:#fff;cursor:pointer;padding:0 18px;font-weight:700;transition:transform .05s ease,opacity .2s ease}
+      .btn:hover{opacity:.9}.btn:active{transform:translateY(1px)}
+      .site-footer{margin:18px 0 8px;text-align:center;color:var(--muted)}
+      .site-footer nav a{color:inherit;margin:0 8px;text-decoration:none}
+      .site-footer nav a:hover{color:#333}
+      .typing{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:.9rem}
+      .dot{width:6px;height:6px;border-radius:50%;background:#bbb;animation:blink 1.2s infinite}
+      .dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
+      @keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+      .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     </style>
   </head>
 
@@ -225,7 +59,7 @@
           <form id="chatForm" class="chat-form" autocomplete="off">
             <label for="userInput" class="visually-hidden">Your message</label>
             <input id="userInput" name="userInput" type="text" placeholder="Ask about L’Oréal products, skincare, haircare…" required />
-            <button type="submit" id="sendBtn" class="btn">➤</button>
+            <button type="submit" id="sendBtn" class="btn" aria-label="Send">➤</button>
           </form>
         </section>
       </main>
@@ -240,8 +74,137 @@
       </footer>
     </div>
 
-    <!-- Local dev only: provides window.OPENAI_API_KEY -->
-    <script src="secrets.js" defer></script>
-    <script src="loreal.js" defer></script>
+    <script>
+      // ===== CONFIG =====
+      // If deploying securely, set your Cloudflare Worker URL here:
+      const WORKER_URL = ""; // e.g., "https://your-name.workers.dev"
+
+      // For local dev (no Worker), provide an API key in secrets.js as: window.OPENAI_API_KEY = "sk-...";
+      // If you don't want a separate file, you can TEMPORARILY paste a key here for quick testing:
+      // const DEV_KEY = "sk-...";  // <- remove after testing
+      const DEV_KEY = undefined;   // keep undefined for normal behavior
+
+      // Strict L’Oréal-only system prompt
+      const SYSTEM_PROMPT =
+        "You are L’Oréal Beauty Assistant, a helpful, concise expert on L’Oréal products (skincare, makeup, haircare, fragrance) and beauty routines. " +
+        "Only answer questions related to L’Oréal, beauty routines, product recommendations, ingredients, application tips, suitability by skin/hair type, and shopping or shade guidance. " +
+        "If a question is unrelated (e.g., homework, politics, unrelated tech, other brands), politely refuse and steer the user back to L’Oréal/beauty topics. " +
+        "Ask brief follow-up questions when needed for personalization (skin type, hair concerns, sensitivities, budget). " +
+        "Never claim to be a medical professional; for medical concerns, suggest seeing a dermatologist. " +
+        "Keep brand tone: refined, friendly, empowering.";
+
+      // ===== ELEMENTS =====
+      const chatForm = document.getElementById("chatForm");
+      const userInput = document.getElementById("userInput");
+      const chatWindow = document.getElementById("chatWindow");
+      const lastQuestionEl = document.getElementById("lastQuestion");
+
+      // ===== STATE (session-scoped) =====
+      const STATE_KEY = "loreal_chat_history_v1";
+      let messages = loadHistory();
+      if (messages.length === 0) {
+        messages = [
+          { role: "system", content: SYSTEM_PROMPT },
+          { role: "assistant", content: "Bonjour! I’m your L’Oréal Beauty Assistant. Ask me about products or routines and I’ll tailor recommendations." }
+        ];
+        saveHistory();
+      }
+      renderAll();
+
+      // ===== HELPERS =====
+      function saveHistory() { try { sessionStorage.setItem(STATE_KEY, JSON.stringify(messages)); } catch(e){} }
+      function loadHistory() { try { const raw = sessionStorage.getItem(STATE_KEY); return raw ? JSON.parse(raw) : []; } catch(e){ return []; } }
+      function scrollToBottom(){ chatWindow.scrollTop = chatWindow.scrollHeight; }
+      function bubble(content, who="ai"){ const d=document.createElement("div"); d.className=`bubble ${who}`; d.textContent=content; return d; }
+      function showTyping(){ const wrap=document.createElement("div"); wrap.className="typing"; wrap.dataset.typing="true"; wrap.innerHTML='<span class="dot"></span><span class="dot"></span><span class="dot"></span>'; chatWindow.appendChild(wrap); scrollToBottom(); return wrap; }
+      function removeTyping(){ const n=chatWindow.querySelector('[data-typing="true"]'); if(n) n.remove(); }
+      function renderAll(){ chatWindow.innerHTML=""; for(const m of messages){ if(m.role==="system") continue; chatWindow.appendChild(bubble(m.content, m.role==="user"?"user":"ai")); } scrollToBottom(); }
+
+      // ===== FORM SUBMIT =====
+      chatForm.addEventListener("submit", async (e) => {
+        e.preventDefault(); // IMPORTANT: prevents page reload
+        const text = userInput.value.trim();
+        if (!text) return;
+
+        // push user message and display it immediately
+        messages.push({ role:"user", content:text });
+        saveHistory();
+        chatWindow.appendChild(bubble(text, "user"));
+        lastQuestionEl.style.display = "block";
+        lastQuestionEl.textContent = "You asked: " + text;
+        userInput.value = "";
+        const typing = showTyping();
+
+        try {
+          const reply = await getAIResponse(messages);
+          removeTyping();
+          messages.push({ role:"assistant", content: reply });
+          saveHistory();
+          chatWindow.appendChild(bubble(reply, "ai"));
+          scrollToBottom();
+        } catch (err) {
+          console.error(err);
+          removeTyping();
+          const msg = "Sorry—there was a problem reaching the AI. Check your API key or Worker URL.";
+          messages.push({ role:"assistant", content: msg });
+          chatWindow.appendChild(bubble(msg, "ai"));
+          scrollToBottom();
+        }
+      });
+
+      // ===== NETWORK =====
+      async function getAIResponse(msgs){
+        // Ensure system prompt first
+        if (!msgs.length || msgs[0].role !== "system"){
+          msgs.unshift({ role:"system", content: SYSTEM_PROMPT });
+        }
+
+        // 1) Use Cloudflare Worker if provided
+        if (WORKER_URL){
+          const res = await fetch(WORKER_URL, {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body: JSON.stringify({ messages: msgs })
+          });
+          if (!res.ok) throw new Error("Worker HTTP " + res.status);
+          const data = await res.json();
+          const content = data?.choices?.[0]?.message?.content;
+          if (!content) throw new Error("No content from worker");
+          return content;
+        }
+
+        // 2) Local dev: use key from secrets.js or DEV_KEY (temporary)
+        const apiKey = (typeof window !== "undefined" && window.OPENAI_API_KEY) ? window.OPENAI_API_KEY : DEV_KEY;
+        if (!apiKey) throw new Error("No API key found. Set WORKER_URL or include secrets.js (window.OPENAI_API_KEY).");
+
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer " + apiKey
+          },
+          body: JSON.stringify({
+            model: "gpt-4o",
+            messages: msgs,
+            max_tokens: 600
+          })
+        });
+        if (!res.ok) throw new Error("OpenAI HTTP " + res.status);
+        const data = await res.json();
+        const content = data?.choices?.[0]?.message?.content;
+        if (!content) throw new Error("No content from OpenAI");
+        return content;
+      }
+
+      // Optional util to clear session history
+      window.clearLorealHistory = function(){
+        sessionStorage.removeItem(STATE_KEY);
+        messages = [{ role:"system", content:SYSTEM_PROMPT }];
+        saveHistory();
+        renderAll();
+      };
+    </script>
+
+   
   </body>
 </html>
