@@ -1,0 +1,5 @@
+{
+  "name": "loreal-ai-worker",
+  "main": "worker-loreal.js",
+  "compatibility_date": "2025-12-08"
+}

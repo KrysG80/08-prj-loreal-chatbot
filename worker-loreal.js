@@ -27,7 +27,7 @@ export default {
       const payload = {
         model: "gpt-4o",
         messages,
-        max_completion_tokens: 600,
+        max_tokens: 600,
       };
 
       const r = await fetch("https://api.openai.com/v1/chat/completions", {
