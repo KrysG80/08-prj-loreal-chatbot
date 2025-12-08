@@ -77,7 +77,8 @@
     <script>
       // ===== CONFIG =====
       // If deploying securely, set your Cloudflare Worker URL here:
-      const WORKER_URL = ""; // e.g., "https://your-name.workers.dev"
+      const WORKER_URL = "https://08-prj-loreal-chatbot.kgreen43.workers.dev";
+
 
       // For local dev (no Worker), provide an API key in secrets.js as: window.OPENAI_API_KEY = "sk-...";
       // If you don't want a separate file, you can TEMPORARILY paste a key here for quick testing:
@@ -161,17 +162,18 @@
 
         // 1) Use Cloudflare Worker if provided
         if (WORKER_URL){
-          const res = await fetch(WORKER_URL, {
+           const res = await fetch(WORKER_URL, {
             method:"POST",
             headers:{ "Content-Type":"application/json" },
             body: JSON.stringify({ messages: msgs })
           });
-          if (!res.ok) throw new Error("Worker HTTP " + res.status);
-          const data = await res.json();
-          const content = data?.choices?.[0]?.message?.content;
-          if (!content) throw new Error("No content from worker");
-          return content;
-        }
+        if (!res.ok) throw new Error("Worker HTTP " + res.status);
+        const data = await res.json();
+        const content = data?.choices?.[0]?.message?.content;
+        if (!content) throw new Error("No content from worker");
+        return content;
+      }
+
 
         // 2) Local dev: use key from secrets.js or DEV_KEY (temporary)
         const apiKey = (typeof window !== "undefined" && window.OPENAI_API_KEY) ? window.OPENAI_API_KEY : DEV_KEY;
